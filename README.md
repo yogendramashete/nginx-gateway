@@ -6,3 +6,6 @@ A nginx server deployed on docker which routes requests to a helloworld applicat
 ### Dependencies
 * Springboot web
 * Docker
+
+### How to run
+* docker-compose up
