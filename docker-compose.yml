@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-   container_name: some-nginx
+   container_name: nginx-server
    image: nginx:latest
    restart: always
    ports:
@@ -10,15 +10,15 @@ services:
    volumes:
    - ./nginx/conf.d:/etc/nginx/conf.d
    depends_on:
-   - demo
+   - helloworld
 
-  demo:
-    container_name: some-demo
+  helloworld:
+    container_name: helloworld-service
     restart: always
-    build: ./demo
-    working_dir: /demo
+    build: ./helloworld
+    working_dir: /helloworld
     volumes:
-      - ./demo:/demo
+      - ./helloworld:/helloworld
     expose:
       - "8080"
     command: ./gradlew bootrun
